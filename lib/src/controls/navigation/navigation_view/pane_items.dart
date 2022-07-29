@@ -26,6 +26,7 @@ class PaneItem extends NavigationPaneItem {
     this.title,
     this.infoBadge,
     this.focusNode,
+    this.height,
     this.autofocus = false,
     this.mouseCursor,
     this.tileColor,
@@ -51,6 +52,9 @@ class PaneItem extends NavigationPaneItem {
   ///
   /// Usually an [Icon] widget
   final Widget icon;
+
+  //custom item height
+  final double? height;
 
   /// The info badge used by this item
   final InfoBadge? infoBadge;
@@ -148,7 +152,7 @@ class PaneItem extends NavigationPaneItem {
             case PaneDisplayMode.compact:
               return Container(
                 key: itemKey,
-                height: 36.0,
+                height: height ?? 36.0,
                 alignment: Alignment.center,
                 child: Padding(
                   padding: theme.iconPadding ?? EdgeInsets.zero,
@@ -177,7 +181,7 @@ class PaneItem extends NavigationPaneItem {
             case PaneDisplayMode.open:
               return SizedBox(
                 key: itemKey,
-                height: 36.0,
+                height: height ?? 36.0,
                 child: Row(children: [
                   Padding(
                     padding: theme.iconPadding ?? EdgeInsets.zero,
