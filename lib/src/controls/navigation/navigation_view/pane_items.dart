@@ -254,7 +254,8 @@ class PaneItem extends NavigationPaneItem {
                       : newStates,
                 );
               }(),
-              borderRadius: BorderRadius.circular(4.0),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(4), bottomLeft: Radius.circular(4)),
             ),
             child: FocusBorder(
               focused: states.isFocused,
