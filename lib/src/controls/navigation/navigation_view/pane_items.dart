@@ -193,7 +193,7 @@ class PaneItem extends NavigationPaneItem {
                   Expanded(child: textResult),
                   if (infoBadge != null)
                     Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 8.0),
+                      padding: const EdgeInsetsDirectional.only(end: 0),
                       child: infoBadge!,
                     ),
                 ]),
