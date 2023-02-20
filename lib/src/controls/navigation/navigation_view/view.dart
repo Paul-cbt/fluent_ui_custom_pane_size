@@ -527,12 +527,10 @@ class NavigationViewState extends State<NavigationView> {
 
   // ignore: non_constant_identifier_names
   Widget PaneScrollConfiguration({required Widget child}) {
-    return PrimaryScrollController(
-      controller: scrollController,
-      child: ScrollConfiguration(
-        behavior: const NavigationViewScrollBehavior(),
-        child: child,
-      ),
+    return ScrollConfiguration(
+      behavior:
+          NavigationViewScrollBehavior(scrollController: scrollController),
+      child: child,
     );
   }
 }
@@ -744,12 +742,13 @@ class _NavigationAppBar extends StatelessWidget {
 /// It generates a [Scrollbar] using the global scroll controller provided by
 /// [NavigationView]
 class NavigationViewScrollBehavior extends FluentScrollBehavior {
-  const NavigationViewScrollBehavior();
+  final ScrollController scrollController;
+  const NavigationViewScrollBehavior({required this.scrollController});
 
   @override
   Widget buildScrollbar(context, child, details) {
     return Scrollbar(
-      controller: PrimaryScrollController.of(context),
+      controller: scrollController,
       thumbVisibility: false,
       child: child,
     );
